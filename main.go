@@ -10,7 +10,6 @@ import (
 	"net/url"
 	"os"
 	"os/signal"
-	"strings"
 	"time"
 
 	"github.com/gorilla/websocket"
@@ -87,13 +86,13 @@ func main() {
 
 				// sha256 hash the raw bytes into the tx hash
 				txHash := fmt.Sprintf("%x", sha256.Sum256(decodedData))
-				fmt.Println("txHash:", strings.ToUpper(txHash))
+				// fmt.Println("txHash:", strings.ToUpper(txHash))
 
 				txs[txHash] = tx
 			}
 
 			for txHash := range txs {
-				fmt.Println("txs keys:", txHash)
+				fmt.Println("txs hash:", txHash)
 			}
 
 		}
